@@ -49,17 +49,23 @@ const showAlert=(message,type)=>{
   <Navbar title="TextUtils" abouttext="About" mode={mode}  toggleMode={toggleMode} ></Navbar>
    <Alert alert={alert}></Alert>
    <Routes>
+    {
+      //exact key word for exact router map
+      /*/users-->Component1
+      //users/home --->component2
+      */
+    }
    <Route exact path="/"
               element={
                 <TextForm
                   showAlert={showAlert}
-                  heading="Enter Text to analyze "
+                  heading="Try TextUtils - Word Counter, Character Counter, RemoveExtra Spaces "
                   mode={mode}
                 />
               }
             ></Route>
 
-     <Route exact path="/about" element={<About/>}>
+     <Route exact path="/about" element={<About mode={mode}/>}>
      </Route>
    </Routes>
   </div> 

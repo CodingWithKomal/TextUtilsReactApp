@@ -1,44 +1,51 @@
 import React,{useState} from 'react'
 
-export default function About() {
-const[myStyle,setMyStyle]=useState({
+export default function About(props) {
+// const[myStyle,setMyStyle]=useState({
 
-    color:'black',
-    backgroundColor:'white'
+//     color:'black',
+//     backgroundColor:'white'
     
 
-});
+// });
 
-const[btntext,setbtnText]=useState("Enable Dark Mode");
-
-const toggleStyle=()=>{
-    if(myStyle.color==='white')
-    {
-        setMyStyle({
-           color:'black',
-           backgroundColor:'white'
-
-        })
-        setbtnText("Enable Dark Mode");
-
-    }
-    else
-    {
-        setMyStyle({
-            color:'white',
-            backgroundColor:'black',
-            border:'1px solid white'
-         })
-         setbtnText("Enable Light Mode");
-
-    }
-
+let myStyle = {
+color:props.mode==='dark'?'white':'#042743',
+backgroundColor:props.mode==='dark'?'rgb(36 74 104)':'white',
+border:'2px solid',
+borderColor:props.mode==='dark'?'white':'#042743',
 }
+
+// const[btntext,setbtnText]=useState("Enable Dark Mode");
+
+// const toggleStyle=()=>{
+//     if(myStyle.color==='white')
+//     {
+//         setMyStyle({
+//            color:'black',
+//            backgroundColor:'white'
+
+//         })
+//         setbtnText("Enable Dark Mode");
+
+//     }
+//     else
+//     {
+//         setMyStyle({
+//             color:'white',
+//             backgroundColor:'black',
+//             border:'1px solid white'
+//          })
+//          setbtnText("Enable Light Mode");
+
+//     }
+
+// }
 
  
   return (
-    <div className="container my-3" style={myStyle}>
-      <h1>About Us</h1>
+    <div className="container my-3" >
+      <h1 style={{color:props.mode==='dark'?'white':'black'}}>About Us</h1>
       <div className="accordion" id="accordionExample" >
         <div className="accordion-item" >
           <h2 className="accordion-header" id="headingOne">
@@ -51,7 +58,7 @@ const toggleStyle=()=>{
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Accordion Item #1
+             <strong>Analyze your text</strong> 
             </button>
           </h2>
           <div
@@ -83,7 +90,7 @@ const toggleStyle=()=>{
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Accordion Item #2
+         <strong>Free to use</strong>
             </button>
           </h2>
           <div
@@ -115,7 +122,7 @@ const toggleStyle=()=>{
               aria-controls="collapseThree"
               style={myStyle}
             >
-              Accordion Item #3
+<strong>Brouser Compatible</strong>
             </button>
           </h2>
           <div
@@ -137,9 +144,9 @@ const toggleStyle=()=>{
           </div>
         </div>
       </div>
-      <div className='container my-3'>
+      {/* <div className='container my-3'>
               <button onClick={toggleStyle} className='btn btn-primary'>{btntext}</button>
-</div>
+</div> */}
     </div>
   );
 }

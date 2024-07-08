@@ -12,13 +12,15 @@ export default function Alert(props) {
 
 
    //this syntax is like it check s if     props.alert  has any value or not if it has value then it will  go further otherwise it will stop
-
-    props.alert &&
+   <div style={{height:'50px'}}>
+   { props.alert &&
     <div>
      
       <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
       <strong> {capitalise(props.alert.type)}</strong>  {props.alert.msg}
         </div>
+    </div>
+    }
     </div>
   )
 }
